@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copiar enlace</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .link-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .copy-button {
+      padding: 5px 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="link-container">
+    <a id="link" href="https://example.com" target="_blank">https://example.com</a>
+    <button class="copy-button" onclick="copyToClipboard()">Copiar</button>
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const link = document.getElementById('link').href; // Obtiene el enlace
+      navigator.clipboard.writeText(link) // Copia al portapapeles
+        .then(() => {
+          alert('¡Enlace copiado al portapapeles!');
+        })
+        .catch(err => {
+          console.error('Error al copiar el enlace: ', err);
+        });
+    }
+  </script>
+</body>
+</html>
